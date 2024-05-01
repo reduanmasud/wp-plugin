@@ -15,9 +15,9 @@ jobs:
       - name: Move file
         run: mv $GITHUB_WORKSPACE/test/file.txt $GITHUB_WORKSPACE/file.txt
 
-      - name: Commit file changes
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add file.txt
-          git commit -m "Move file to main folder" || echo "No changes to commit"
+    #   - name: Commit file changes
+    #     run: |
+    #       git config --local user.email "actions@github.com"
+    #       git config --local user.name "GitHub Actions"
+    #       git add file.txt
+    #       git commit -m "Move file to main folder" || echo "No changes to commit"
