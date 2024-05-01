@@ -1,0 +1,11 @@
+name : "Send test/file.txt to main folder"
+on:
+    push: 
+        branches:
+            - main
+jobs:
+    move-file:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Move file"
+              run: mv test/file.txt file.txt
