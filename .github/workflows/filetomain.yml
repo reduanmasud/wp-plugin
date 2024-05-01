@@ -12,12 +12,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2  # This step checks out your repository's code
 
-      - name: Move file
-        run: mv $GITHUB_WORKSPACE/test/file.txt $GITHUB_WORKSPACE/file.txt
+      - name: List files in working directory
+        run: ls -al
 
-    #   - name: Commit file changes
-    #     run: |
-    #       git config --local user.email "actions@github.com"
-    #       git config --local user.name "GitHub Actions"
-    #       git add file.txt
-    #       git commit -m "Move file to main folder" || echo "No changes to commit"
+      - name: Move file to root directory
+        run: |
+          mv $GITHUB_WORKSPACE/test/file.txt $GITHUB_WORKSPACE/file.txt || exit 0
+
+      - name: List files after move operation
+        run: ls -al
+
+      - name: Commit file changes
+        run: |
+          git config --local user.email "reduanmasudcse@gmail.com"
+          git config --local user.name "Github Action"
+          git add file.txt
+          git commit -m "Move file to main folder" || echo "No changes to commit"
